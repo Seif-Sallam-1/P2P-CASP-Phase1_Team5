@@ -1,0 +1,35 @@
+Peer-to-Peer Content-Addressable Chunk Streaming Protocol - Phase 1
+Windows PowerShell Run Guide
+====================================================================
+
+Requirements
+- Windows 10/11, Python 3.10 or newer on PATH (system Python; no venv needed), PowerShell.
+
+1. Open a PowerShell terminal in the project folder (the folder containing server.py).
+2. Check Python:
+   python --version
+   If missing, install from https://www.python.org/downloads/ and enable "Add Python to PATH".
+3. No pip install is required; only the Python standard library is used.
+4. Run unit and integration tests:
+   python -m unittest discover -s tests -v
+5. Manual run. Terminal A (server):
+   python server.py --host 127.0.0.1 --port 5001
+6. Terminal B, run four clients one at a time (manual smoke test):
+   python client.py --host 127.0.0.1 --port 5001 --peer-id 1 --name peer-1 --message "Hello from client 1"
+   python client.py --host 127.0.0.1 --port 5001 --peer-id 2 --name peer-2 --message "Hello from client 2"
+   python client.py --host 127.0.0.1 --port 5001 --peer-id 3 --name peer-3 --message "Hello from client 3"
+   python client.py --host 127.0.0.1 --port 5001 --peer-id 4 --name peer-4 --message "Hello from client 4"
+   Each should show INIT_OK, DATA_OK, and an RTT measurement, and exit with status 0.
+7. Stop the server with Ctrl+C.
+8. Automated baseline (4 CONCURRENT clients; starts and stops its own server):
+   If script execution is blocked: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   .\run_baseline.ps1
+   The script exits non-zero if any client fails.
+9. Evidence: logs\baseline_server.log and logs\baseline_client_<N>.log (N = 1..4).
+
+Note: Phase 1 is single-shot by design (2 s timeout, no retransmission).
+
+Troubleshooting
+- If port 5001 is busy: Get-NetUDPEndpoint -LocalPort 5001
+  Identify the process: Get-Process -Id <PID>   (stop only the old project server if safe)
+- If "python" is not found, try: py -3 --version

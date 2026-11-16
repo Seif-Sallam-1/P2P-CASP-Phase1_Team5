@@ -1,0 +1,10 @@
+2026-11-16 18:10:42,011 | INFO | Starting INIT exchange
+2026-11-16 18:10:42,022 | INFO | Sent message type=1 sequence=1
+2026-11-16 18:10:42,022 | INFO | RTT measured: 11 ms
+2026-11-16 18:10:42,022 | INFO | ACK received: INIT_OK
+2026-11-16 18:10:42,022 | INFO | Starting DATA exchange
+2026-11-16 18:10:42,022 | INFO | Sent message type=2 sequence=2
+2026-11-16 18:10:42,022 | INFO | RTT measured: 0 ms
+2026-11-16 18:10:42,022 | INFO | ACK received: DATA_OK
+2026-11-16 18:10:42,022 | INFO | Communication completed successfully
+2026-11-16 18:10:42,022 | INFO | Client socket closed

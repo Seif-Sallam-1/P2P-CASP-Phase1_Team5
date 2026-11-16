@@ -1,0 +1,25 @@
+2026-11-16 18:10:41,842 | INFO | UDP Server listening on 127.0.0.1:5001
+2026-11-16 18:10:42,016 | INFO | Packet received from ('127.0.0.1', 57759)
+2026-11-16 18:10:42,017 | INFO | INIT received | peer_id=3 | name=baseline-peer-3 | address=('127.0.0.1', 57759)
+2026-11-16 18:10:42,017 | INFO | INIT ACK sent to peer 3
+2026-11-16 18:10:42,017 | INFO | Packet received from ('127.0.0.1', 40579)
+2026-11-16 18:10:42,017 | INFO | INIT received | peer_id=4 | name=baseline-peer-4 | address=('127.0.0.1', 40579)
+2026-11-16 18:10:42,017 | INFO | INIT ACK sent to peer 4
+2026-11-16 18:10:42,020 | INFO | Packet received from ('127.0.0.1', 55922)
+2026-11-16 18:10:42,020 | INFO | INIT received | peer_id=2 | name=baseline-peer-2 | address=('127.0.0.1', 55922)
+2026-11-16 18:10:42,020 | INFO | INIT ACK sent to peer 2
+2026-11-16 18:10:42,021 | INFO | Packet received from ('127.0.0.1', 48845)
+2026-11-16 18:10:42,022 | INFO | INIT received | peer_id=1 | name=baseline-peer-1 | address=('127.0.0.1', 48845)
+2026-11-16 18:10:42,022 | INFO | INIT ACK sent to peer 1
+2026-11-16 18:10:42,022 | INFO | Packet received from ('127.0.0.1', 57759)
+2026-11-16 18:10:42,022 | INFO | DATA received | peer_id=3 | payload=Baseline DATA test from Client 3
+2026-11-16 18:10:42,022 | INFO | DATA ACK sent to peer 3
+2026-11-16 18:10:42,025 | INFO | Packet received from ('127.0.0.1', 40579)
+2026-11-16 18:10:42,025 | INFO | DATA received | peer_id=4 | payload=Baseline DATA test from Client 4
+2026-11-16 18:10:42,025 | INFO | DATA ACK sent to peer 4
+2026-11-16 18:10:42,029 | INFO | Packet received from ('127.0.0.1', 48845)
+2026-11-16 18:10:42,029 | INFO | DATA received | peer_id=1 | payload=Baseline DATA test from Client 1
+2026-11-16 18:10:42,029 | INFO | DATA ACK sent to peer 1
+2026-11-16 18:10:42,029 | INFO | Packet received from ('127.0.0.1', 55922)
+2026-11-16 18:10:42,029 | INFO | DATA received | peer_id=2 | payload=Baseline DATA test from Client 2
+2026-11-16 18:10:42,029 | INFO | DATA ACK sent to peer 2

@@ -1,0 +1,33 @@
+Peer-to-Peer Content-Addressable Chunk Streaming Protocol - Phase 1
+Linux / Kali Linux Run Guide
+====================================================================
+
+Requirements
+- Linux/Kali Linux and Python 3.10 or newer (system python3; no venv needed).
+
+1. Open a terminal in the project directory (the folder containing server.py).
+2. Check Python:
+   python3 --version
+3. No pip install is required; only the Python standard library is used.
+4. Run unit and integration tests:
+   python3 -m unittest discover -s tests -v
+5. Manual run. Terminal A (server):
+   python3 server.py --host 127.0.0.1 --port 5001
+6. Terminal B, run four clients one at a time (manual smoke test):
+   python3 client.py --host 127.0.0.1 --port 5001 --peer-id 1 --name peer-1 --message "Hello from client 1"
+   python3 client.py --host 127.0.0.1 --port 5001 --peer-id 2 --name peer-2 --message "Hello from client 2"
+   python3 client.py --host 127.0.0.1 --port 5001 --peer-id 3 --name peer-3 --message "Hello from client 3"
+   python3 client.py --host 127.0.0.1 --port 5001 --peer-id 4 --name peer-4 --message "Hello from client 4"
+   Each should show INIT_OK, DATA_OK, and an RTT measurement, and exit with status 0.
+7. Stop the server with Ctrl+C.
+8. Automated baseline (4 CONCURRENT clients; starts and stops its own server):
+   chmod +x run_baseline.sh
+   ./run_baseline.sh
+   The script exits non-zero if any client fails.
+9. Evidence: logs/baseline_server.log and logs/baseline_client_<N>.log (N = 1..4).
+
+Note: Phase 1 is single-shot by design (2 s timeout, no retransmission).
+
+Troubleshooting
+- Check whether port 5001 is occupied: ss -lunp | grep 5001
+- Stop only the old project server process if safe.
